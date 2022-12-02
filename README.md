@@ -29,5 +29,5 @@ Accuracy and F1 score and AUROC are calculated in the code.
 
 Bug Report
 ------------
-If you find a bug, please send email to bahrami.mojtaba.93@gmail.com or mahsa.ghorbani@sharif.edu including if necessary the input file and the parameters that caused the bug.
-You can also send us any comment or suggestion about the program.
+If you find a bug, please send email to bahrami.mojtaba.93@gmail.com or mahsa.ghorbani@sharif.edu. Please attach including your input file and the parameters that caused the bug (if necessary).
+We would appreciate if you send us any comment or suggestion about the model.
