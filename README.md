@@ -9,9 +9,7 @@ The code in this repository has two main parts:
 - Pre-training a model with our proposed approach (intelligent_masking.ipynb)
 - Evaluating the performance of a classifier with the pre-trained encoder (from previous step) in its back-bone
 
-![Intelligent-masking overview](https://github.com/mahsa91/IntelligentMasking-MLMI2022/blob/main/intelligent-masking.JPG)
-
-
+<a href="url"><img src="https://github.com/mahsa91/IntelligentMasking-MLMI2022/blob/main/intelligent-masking.JPG" align="center" height="350" ></a>  
 
 Usage 
 ------------
@@ -22,7 +20,7 @@ Input Data
 ------------
 To run our pre-training model, you can see "intelligent_masking.ipynb". To run this notebook for your data, you need to write a function to get your dataset. The output of your function should be a dataframe containing two columns. The firs one  is 'image_path' which contains the path of images, and the second one is 'label_cat' which contains the categorical labels. Then after splitting to train and test, two dataloaders from training and testing data are created. In "Model Config", the structure of masking network (agent) and reconstruction network are defined. In "Trainer Config", the parameters for training algorithm are set. Then the "model" variable is the trained model including reconstruction component (trained encoder and decoder) and masking agent. The parameters for saving model is also defined in "checkpoint_callback" variable. 
 
-To run classification step, you can see "classification.ipynb. To run this notebook, you should define the setting 
+To run classification step, you can see "classification.ipynb. To run this notebook, you should define the settings in setup cell.
 
 Metrics
 ------------
@@ -33,4 +31,3 @@ Bug Report
 ------------
 If you find a bug, please send email to bahrami.mojtaba.93@gmail.com or mahsa.ghorbani@sharif.edu including if necessary the input file and the parameters that caused the bug.
 You can also send us any comment or suggestion about the program.
-
