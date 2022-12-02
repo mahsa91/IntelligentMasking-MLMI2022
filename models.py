@@ -451,23 +451,6 @@ class NNClassifier(BaseClassifier):
             self.loss = nn.NLLLoss()
 
 
-class CNNClassifier(NNClassifier):
-    def __init__(self, enc_chs=(1, 64, 128, 256, 512, 1024), conv_channel=-1, nclass=1, hidden=-1, lr=1e-3, weight_decay=0, dropout=0.5, use_scheduler=True, milestones=[50, 100, 150], use_weight=False, weight=None):
-        super().__init__(nfeat=conv_channel, nclass=nclass, hidden=hidden, lr=lr, weight_decay=weight_decay, dropout=dropout, use_scheduler=use_scheduler, milestones=milestones, use_weight=use_weight, weight=weight)
-        self.save_hyperparameters()
-        self.encoder = nn.Sequential(Encoder(enc_chs), nn.Conv2d(enc_chs[-1], conv_channel, 3, padding='same'), nn.AdaptiveAvgPool2d((1, 1)), nn.Flatten())
-
-
-class ResNetClassifier(NNClassifier):
-    def __init__(self, nclass=1, hidden=-1, lr=1e-3, weight_decay=0, dropout=0.5, nlayer_unfreeze=-1, use_scheduler=True, milestones=[50, 100, 150], use_weight=False, weight=None):
-        super().__init__(nfeat=torchvision.models.resnet18(pretrained=True).fc.in_features, nclass=nclass, hidden=hidden, dropout=dropout, use_scheduler=use_scheduler, milestones=milestones, use_weight=use_weight, weight=weight)
-        self.save_hyperparameters()
-        self.resnet = torchvision.models.resnet18(pretrained=True)
-        self.resnet = nn.Sequential(*list(self.resnet.children())[:-1])
-        set_parameter_requires_grad_layered(self.resnet, nlayer_unfreeze)
-        self.encoder = nn.Sequential(self.resnet, nn.Flatten())
-
-
 class EncoderClassifier(NNClassifier):
     def __init__(self, encoder, encoder_last_channel, conv_channel=-1, nclass=1, hidden=-1, lr=1e-3, weight_decay=0, dropout=0.5, nlayer_unfreeze=-1, use_scheduler=True, milestones=[50, 100, 150], use_weight=False, weight=None):
         super().__init__(nfeat=conv_channel, nclass=nclass, hidden=hidden, lr=lr, dropout=dropout, use_scheduler=use_scheduler, milestones=milestones, use_weight=use_weight, weight=weight)
