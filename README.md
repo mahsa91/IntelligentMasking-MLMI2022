@@ -1,6 +1,6 @@
 Intelligent Masking: Deep Q-Learning for Context Encoding in Medical Image Analysis
 ====
-Here is the code of our paper named "["Intelligent Masking: Deep Q-Learning for Context Encoding in Medical Image Analysis"] (https://arxiv.org/pdf/2203.13865.pdf)" accepted in MLMI 2022. 
+Here is the code of our paper named ["Intelligent Masking: Deep Q-Learning for Context Encoding in Medical Image Analysis"](https://arxiv.org/pdf/2203.13865.pdf)" accepted in MLMI 2022. 
 
 The need for a large amount of labeled data in the supervised setting has led recent studies to utilize self-supervised learning to pretrain deep neural networks using unlabeled data. Intelligent masking is a novel self-supervised approach that occludes targeted regions to improve the pre-training procedure. It is designed based on a reinforcement learning-based agent which learns to intelligently mask input images through deep Q-learning. We show that training the agent against
 the prediction model can significantly improve the semantic features extracted for downstream classification tasks.
